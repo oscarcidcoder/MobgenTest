@@ -1,8 +1,12 @@
 package com.mobgen.mobgentest.domain
 
-import com.google.gson.annotations.SerializedName
+import com.mobgen.mobgentest.db.model.CategoryDB
 
 data class Category (
-	@SerializedName("category_name") val category_name : String,
-	@SerializedName("type") val type : Int
+	val name : String,
+	val type : Int
 )
+
+fun Category.asDB() = CategoryDB(name = this.name,type = this.type)
+
+fun List<Category>.asDB() = this.map { it.asDB() }
