@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import java.lang.Error
 
 internal fun Activity.attachFragment(manager: FragmentManager, containerId: Int, view: Fragment, tag: String) {
     manager.beginTransaction()
@@ -34,10 +35,16 @@ inline fun <reified T> Result<T>.doIfSuccess(callback: (value: T) -> Unit) {
     }
 }
 
-// Convierte el externalId en paramentro para buscar los recomendados
-fun String.externalToParam() = "external_content_id:$this"
-// Busqueda de las imagenes por su path
-fun String.imagePath() = "https://smarttv.orangetv.orange.es/stv/api/rtv/v1/images$this"
+inline fun <reified T, reified R> Result<T>.convertIfSuccess(convert: (value: T) -> R): Result<R> {
+    return when (this) {
+        is Result.Success -> {
+            val result = convert(value)
+            Result.build { result }
+        }
+        is Result.Error -> Result.Error(message,throwable)
+        else -> Result.Error("Undefined",null)
+    }
+}
 
 // ----------- Handler LifeCycle Extensions ----------- //
 
