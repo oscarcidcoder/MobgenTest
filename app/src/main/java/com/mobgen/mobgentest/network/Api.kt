@@ -10,15 +10,15 @@ import retrofit2.http.GET
 interface Api {
 
     @GET("/categories")
-    suspend fun getAllCategories(): Response<Result<List<Category>>>
+    suspend fun getAllCategories(): Response<List<Category>>
 
     @GET("list/1")
-    suspend fun getBooks(): Response<Result<List<Book>>>
+    suspend fun getBooks(): Response<List<Book>>
 
     @GET("list/2")
-    suspend fun getHouses(): Response<Result<List<House>>>
+    suspend fun getHouses(): Response<List<House>>
 
     @GET("list/3")
-    suspend fun getCharacters(): Response<Result<List<Character>>>
+    suspend fun getCharacters(): Response<List<Character>>
 
 }
