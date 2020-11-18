@@ -2,6 +2,7 @@ package com.mobgen.mobgentest.di
 
 import com.mobgen.mobgentest.R
 import com.mobgen.mobgentest.network.Api
+import com.mobgen.mobgentest.network.NetworkDataSourse
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
@@ -33,5 +34,6 @@ val networkModule = module {
     }
 
     single { get<Retrofit>().create(Api::class.java) }
+    single { NetworkDataSourse(api = get()) }
 
 }
