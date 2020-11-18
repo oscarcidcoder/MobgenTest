@@ -1,8 +1,12 @@
 package com.mobgen.mobgentest
 
 import android.app.Application
+import com.mobgen.mobgentest.di.databaseModule
+import com.mobgen.mobgentest.di.networkModule
+import com.mobgen.mobgentest.di.repositoryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
+import org.koin.dsl.module
 
 class MobgenApp : Application() {
 
@@ -10,6 +14,9 @@ class MobgenApp : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@MobgenApp)
+            modules(networkModule)
+            modules(databaseModule)
+            modules(repositoryModule)
         }
     }
 }
