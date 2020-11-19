@@ -1,21 +1,20 @@
 package com.mobgen.mobgentest.utils
 
 import android.app.Activity
+import android.text.Html
+import android.text.SpannableString
+import android.text.style.BulletSpan
 import android.widget.ImageView
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.graphics.drawable.TintAwareDrawable
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import com.bumptech.glide.Glide
-import java.lang.Error
 
 internal fun Activity.attachFragment(manager: FragmentManager, containerId: Int, view: Fragment, tag: String) {
     manager.beginTransaction()
@@ -93,4 +92,10 @@ fun ImageView.tintSrc(@ColorRes colorRes: Int) {
     DrawableCompat.setTint(drawable, ContextCompat.getColor(context, colorRes))
     setImageDrawable(drawable)
     if (drawable is TintAwareDrawable) invalidate()
+}
+
+fun Collection<String>.bulletList(): String {
+    return this.joinToString(separator = "\n") {
+        HtmlCompat.fromHtml("&#8226 $it",HtmlCompat.FROM_HTML_MODE_LEGACY)
+    }
 }
