@@ -15,12 +15,12 @@ class RepositoryMobgen(private val remote: NetworkDataSourse, private val local:
         val localCategies = local.getCategories()
         if (localCategies.isEmpty()) {
             return remote.getCategories().convertIfSuccess {
-                val categoriesDomain = it.asDomain()
+                val categoriesDomain = it.asDomain().sortedBy { it.name }
                 local.insertCategories(categoriesDomain.asDB())
                 categoriesDomain
             }
         }
-        return Result.Success(localCategies.asDomain())
+        return Result.Success(localCategies.asDomain().sortedBy { it.name })
     }
 
     suspend fun getBooks() = remote.getBooks().convertIfSuccess { it.asDomain() }
