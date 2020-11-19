@@ -6,7 +6,10 @@ import android.util.Log
 import com.mobgen.mobgentest.R
 import com.mobgen.mobgentest.ui.main.MainActivity
 import com.mobgen.mobgentest.utils.Result
+import com.mobgen.mobgentest.utils.bulletList
 import com.mobgen.mobgentest.utils.observe
+import com.mobgen.mobgentest.utils.toBulletedList
+import kotlinx.android.synthetic.main.activity_splash.*
 import org.koin.android.viewmodel.ext.android.getViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -24,8 +27,10 @@ class SplashActivity : AppCompatActivity() {
             when (it) {
                 is Result.Success -> {
                     Log.i(TAG, "onCreate: Result GOOD")
-                    //MainActivity.callMainActivity(this,it.value)
-                    //finish()
+                    //textView.text = listOf("hola","lola","pola").toBulletedList()
+                    //textView.text = listOf("hola","lola","pola").bulletList()
+                    MainActivity.callMainActivity(this,it.value)
+                    finish()
                 }
                 is Result.Error -> Log.i(TAG, "onCreate: Result BAD: ${it.message}")
                 else -> Log.i(TAG, "onCreate: Result BAD: OTHER")
