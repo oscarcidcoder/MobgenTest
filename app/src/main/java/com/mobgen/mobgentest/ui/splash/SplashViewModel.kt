@@ -1,8 +1,6 @@
 package com.mobgen.mobgentest.ui.splash
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
-import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.mobgen.mobgentest.domain.Category
 import com.mobgen.mobgentest.repository.RepositoryMobgen
@@ -10,6 +8,7 @@ import com.mobgen.mobgentest.utils.Result
 import com.mobgen.mobgentest.utils.SingleEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SplashViewModel(private val repository: RepositoryMobgen) : ViewModel() {
@@ -19,6 +18,7 @@ class SplashViewModel(private val repository: RepositoryMobgen) : ViewModel() {
 
     init {
         viewModelScope.launch(job + Dispatchers.IO)  {
+            delay(1500)
             categories.postValue(repository.getCategories())
         }
     }

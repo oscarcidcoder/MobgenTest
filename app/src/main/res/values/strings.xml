@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MobgenTest</string>
+    <string name="app_name" translatable="false">MobgenTest</string>
+    <string name="activity_category">Categories</string>
 </resources>
