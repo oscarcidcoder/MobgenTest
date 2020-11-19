@@ -1,9 +1,6 @@
 package com.mobgen.mobgentest.utils
 
 import android.app.Activity
-import android.text.Html
-import android.text.SpannableString
-import android.text.style.BulletSpan
 import android.widget.ImageView
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
@@ -15,6 +12,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.*
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
 
 internal fun Activity.attachFragment(manager: FragmentManager, containerId: Int, view: Fragment, tag: String) {
     manager.beginTransaction()
@@ -76,9 +74,10 @@ fun <T : Any, L : LiveData<T>> LifecycleOwner.observe(liveData: L, body: (T?) ->
 
 // Handler images
 
-fun ImageView.loadUrl(url: String) {
+fun ImageView.loadUrl(url: String, width: Int = this.width, height: Int = this.height) {
     Glide.with(context).load(url).placeholder(android.R.drawable.ic_menu_report_image)
-            .dontAnimate().dontTransform().into(this)
+        .skipMemoryCache(true).priority(Priority.IMMEDIATE)
+            .dontAnimate().override(width,height).into(this)
 }
 
 /**

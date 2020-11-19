@@ -5,4 +5,8 @@ data class House (
 	val name : String,
 	val region : String,
 	val title : String
-)
+) {
+	val houseType: HouseType?
+		get() = HouseType.byRegion(this.region)
+
+}

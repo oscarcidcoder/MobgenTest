@@ -1,5 +1,6 @@
 package com.mobgen.mobgentest.domain
 
+import android.util.Log
 import java.util.*
 
 /**
@@ -16,10 +17,13 @@ enum class HouseType constructor(val region: String, val imageUrl: String) {
     Stormlands("The Stormlands","https://bit.ly/34F2sEC");
 
     companion object {
-        fun byRegion(region: String): HouseType? {
-            return values().firstOrNull {
-                it.region.toLowerCase(Locale.ROOT).equals(region.toLowerCase(Locale.ROOT), true)
-            }
+        fun byRegion(regionParam: String): HouseType? {
+            return if (regionParam.isBlank())
+                null
+            else
+                values().firstOrNull {
+                    it.region.toLowerCase(Locale.ROOT) == regionParam.toLowerCase(Locale.ROOT)
+                }
         }
     }
 

@@ -16,4 +16,6 @@ fun HouseDTO.asDomain() =
 		this.region,
 		this.title)
 
+
+
 fun List<HouseDTO>.asDomain() = this.map { it.asDomain() }

@@ -20,29 +20,69 @@
 
         <ImageView
             android:id="@+id/iv_thumbnail"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:scaleType="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_max="130dp"
+            app:layout_constraintHeight_min="100dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_max="140dp"
-            app:layout_constraintWidth_min="130dp"
-            tools:srcCompat="@drawable/ic_book" />
+            app:layout_constraintWidth_max="130dp"
+            app:layout_constraintWidth_min="120dp"
+            tools:srcCompat="@android:drawable/ic_menu_report_image" />
 
         <TextView
-            android:id="@+id/tv_category_name"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_house_name"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="3"
             android:text="name"
-            android:maxLines="2"
+            android:ellipsize="end"
             android:textAlignment="textStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/iv_thumbnail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_thumbnail"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_house_region"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="2"
+            android:text="region"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_thumbnail"
+            app:layout_constraintTop_toBottomOf="@id/tv_house_name" />
+
+        <TextView
+            android:id="@+id/tv_house_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:maxLines="3"
+            android:text="title"
+            android:ellipsize="end"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_thumbnail"
+            app:layout_constraintTop_toBottomOf="@id/tv_house_region" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
