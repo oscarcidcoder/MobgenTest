@@ -11,7 +11,7 @@ data class Character (
 	val aliases : List<String>,
 	val father : String,
 	val mother : String,
-	val spouse : Int,
+	val spouse : String,
 	val allegiances : List<String>,
 	val playedBy : List<String>
 )
