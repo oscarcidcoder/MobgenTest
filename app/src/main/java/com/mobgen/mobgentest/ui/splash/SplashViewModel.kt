@@ -18,7 +18,7 @@ class SplashViewModel(private val repository: RepositoryMobgen) : ViewModel() {
 
     init {
         viewModelScope.launch(job + Dispatchers.IO)  {
-            delay(1500)
+            delay(500)
             categories.postValue(repository.getCategories())
         }
     }
