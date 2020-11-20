@@ -6,5 +6,6 @@
 * MaterialDesign
 * Coroutinas
 * Room
+* Koin
 * LifeCycle-KTX
 * Gson
