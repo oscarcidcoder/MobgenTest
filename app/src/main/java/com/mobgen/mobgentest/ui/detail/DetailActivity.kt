@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobgen.mobgentest.R
@@ -31,6 +32,10 @@ class DetailActivity : AppCompatActivity() {
     }
 
     fun initViews() {
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            title = category.name
+        }
         rv_detail.layoutManager = LinearLayoutManager(this)
         rv_detail.setHasFixedSize(true)
         rv_detail.adapter = adapter
@@ -45,6 +50,12 @@ class DetailActivity : AppCompatActivity() {
                 else -> Log.i(com.mobgen.mobgentest.ui.splash.TAG, "onCreate: Result BAD: OTHER")
             }
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home)
+            finish()
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {
