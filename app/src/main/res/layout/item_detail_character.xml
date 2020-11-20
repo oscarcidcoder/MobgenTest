@@ -15,6 +15,7 @@
     android:id="@+id/mcv_category">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="8dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -34,19 +35,21 @@
 
         <TextView
             android:id="@+id/tv_character_gender"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="@string/label_gender"
             android:textAlignment="textStart"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tv_character_culture"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_character_name" />
 
         <TextView
             android:id="@+id/tv_character_culture"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
@@ -60,60 +63,74 @@
 
         <TextView
             android:id="@+id/tv_character_born"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="2"
+            android:ellipsize="end"
             android:text="@string/label_born"
             android:textAlignment="textStart"
+            app:layout_constraintEnd_toStartOf="@+id/tv_character_died"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_character_gender" />
 
         <TextView
             android:id="@+id/tv_character_died"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:maxLines="2"
+            android:ellipsize="end"
             android:text="@string/label_died"
-            android:textAlignment="textEnd"
+            android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_character_born"
             app:layout_constraintTop_toBottomOf="@id/tv_character_gender" />
 
         <TextView
             android:id="@+id/tv_character_aliases"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="3"
+            android:ellipsize="end"
             android:text="@string/label_alias"
             android:textAlignment="textStart"
+            app:layout_constraintEnd_toStartOf="@+id/tv_character_played_by"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_character_born" />
 
         <TextView
             android:id="@+id/tv_character_played_by"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:text="@string/label_playedBy"
-            android:textAlignment="textEnd"
+            android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_character_aliases"
-            app:layout_constraintTop_toBottomOf="@id/tv_character_born" />
+            app:layout_constraintTop_toBottomOf="@id/tv_character_died" />
 
         <TextView
             android:id="@+id/tv_character_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="@string/label_title"
             android:textAlignment="textStart"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_character_aliases" />
 

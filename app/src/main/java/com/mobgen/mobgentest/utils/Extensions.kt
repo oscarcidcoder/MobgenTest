@@ -94,7 +94,7 @@ fun ImageView.tintSrc(@ColorRes colorRes: Int) {
 }
 
 fun Collection<String>.bulletList(): String {
-    return this.joinToString(separator = "\n") {
+    return "\n" + this.joinToString(separator = "\n") {
         HtmlCompat.fromHtml("&#8226 $it",HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 }
