@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name" translatable="false">MobgenTest</string>
     <string name="activity_category">Categories</string>
+    <string name="label_name">Name:\u0020</string>
+    <string name="label_region">Region:\u0020</string>
+    <string name="label_title">Title:\u0020</string>
+    <string name="label_gender">Gender:\u0020</string>
+    <string name="label_culture">Culture:\u0020</string>
+    <string name="label_died">Died:\u0020</string>
+    <string name="label_born">Born:\u0020</string>
+    <string name="label_alias">Aliases:\u0020</string>
+    <string name="label_playedBy">Played by:\u0020</string>
+    <string name="label_isbn">Isbn:\u0020</string>
+    <string name="label_pages">Pages:\u0020</string>
+    <string name="label_mediaType">Media Type:\u0020</string>
+    <string name="label_released">Released:\u0020</string>
+    <string name="label_country">Country:\u0020</string>
+    <string name="label_publisher">Publisher:\u0020</string>
+    <string name="label_authors">Authors:\u0020</string>
 </resources>
