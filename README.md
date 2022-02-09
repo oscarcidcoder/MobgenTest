@@ -1,4 +1,4 @@
-# Mobgen Application Test
+# Application Test, showing categories and their detail, from the medieval era.
 
 **Librerias usadas:**
 * Retrofit
